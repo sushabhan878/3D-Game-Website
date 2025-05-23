@@ -137,6 +137,7 @@ const Characters = () => {
           </AnimatePresence>
         </div>
       </div>
+      <div></div>
     </div>
   );
 };
