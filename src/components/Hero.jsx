@@ -5,8 +5,8 @@ const Hero = () => {
     <main className="relative w-full h-screen overflow-hidden flex justify-center mb-[10%]">
       <video
         src="public\videos\hero.mp4"
-        // autoPlay
-        // loop
+        autoPlay
+        loop
         muted
         playsInline
         className="w-full h-[95%] object-cover absolute top-0 first-letter:left-0 -z-10"

@@ -1,7 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Star } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  spring,
+  animate,
+  number,
+} from "framer-motion";
 import Spline from "@splinetool/react-spline";
+
+//Custom cursor component
+function CustomCursor({ isHovering3D }) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMovement = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+    document.addEventListener("mousemove", handleMouseMovement);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMovement);
+    };
+  });
+  return (
+    <motion.div
+      ref={cursorRef}
+      className="fixed top-0 left-0 z-50 pointer-events-none mix-blend-difference"
+      animate={{
+        x: position.x - (isHovering3D ? 12 : 15),
+        y: position.y - (isHovering3D ? 12 : 15),
+        scale: isHovering3D ? 1.5 : 1,
+      }}
+      transition={{
+        type: spring,
+        stiffness: 500,
+        dumping: 28,
+        mass: 0.5,
+      }}
+    >
+      <motion.div
+        className={`rounded-full ${
+          isHovering3D ? "bg-violet-500" : "bg-white"
+        }`}
+        animate={{
+          width: isHovering3D ? "24px" : "40px",
+          height: isHovering3D ? "24px" : "40px",
+        }}
+        transition={{ duration: 0.2 }}
+      />
+      {isHovering3D && (
+        <motion.div
+          className="absolute inset-0 rounded-full bg-transition border border-violet-500"
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 2, opacity: 0.5 }}
+          transition={{ duration: 1, repeat: number.POSITIVE_INFINITY }}
+        />
+      )}
+    </motion.div>
+  );
+}
 
 // Reusable stat bar component
 const StatBar = ({ label, value }) => (
@@ -19,6 +77,7 @@ const StatBar = ({ label, value }) => (
 
 const Characters = () => {
   const [selectedAvatar, setSelectedAvatar] = useState("VIKI");
+  const [cursorInModelArea, setCursorInModelArea] = useState(false);
 
   const Avatar = {
     VIKI: {
@@ -41,8 +100,16 @@ const Characters = () => {
 
   const currentAvatar = Avatar[selectedAvatar];
 
+  const handle3DAreaMouseEnter = () => {
+    setCursorInModelArea(true);
+  };
+  const handle3DAreaMouseLeave = () => {
+    setCursorInModelArea(false);
+  };
+
   return (
     <div className="relative w-full h-screen overflow-hidden mb-[10%]">
+      <CustomCursor isHovering3D={cursorInModelArea} />
       {/* section title */}
       <div className="relative z-10 pt-6 text-center">
         <h1
@@ -118,26 +185,35 @@ const Characters = () => {
         </div>
 
         {/* Right side: Animated image section */}
-        <div className="relative md:w-2/4 w-full md:h-full h-80 flex items-center justify-center overflow-hidden">
+        <div
+          className="relative md:w-2/4 w-full md:h-full h-80 flex items-center justify-center overflow-hidden"
+          onMouseEnter={handle3DAreaMouseEnter}
+          onMouseLeave={handle3DAreaMouseLeave}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedAvatar}
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center "
               initial={{ x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "-100%", opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
               {currentAvatar.name === "EVA" ? (
-                <Spline scene="https://prod.spline.design/c4GF0b8LRzoyPg8L/scene.splinecode" />
+                <Spline
+                  className="scale-115"
+                  scene="https://prod.spline.design/c4GF0b8LRzoyPg8L/scene.splinecode"
+                />
               ) : (
-                <Spline scene="https://prod.spline.design/y9gTL63pX6haBMLX/scene.splinecode" />
+                <Spline
+                  className="scale-115"
+                  scene="https://prod.spline.design/y9gTL63pX6haBMLX/scene.splinecode"
+                />
               )}
             </motion.div>
           </AnimatePresence>
         </div>
       </div>
-      <div></div>
     </div>
   );
 };
