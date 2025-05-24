@@ -1,12 +1,129 @@
-# React + Vite
+<p align="center">
+  <video src="/videos/hero.mp4"></video>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">🎮 GAME ARENA</h1>
+<p align="center">A next-gen immersive frontend experience for the gaming world.</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#contributing">Contributing</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+<a align="center" href="https://3-d-game-website.vercel.app/">🌐 Visit Live Website</a>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📌 Overview
+
+**Game Arena** is a futuristic, visually-rich frontend web application for a gaming platform. It features responsive layouts, animated 3D components, NFT highlights, and character previews using modern React and Tailwind CSS. It’s designed to offer a sleek UI for showcasing games, characters, and digital assets.
+
+---
+
+## ✨ Features
+
+- 🔥 Dynamic 3D models with **Spline**
+- 📹 Embedded auto-play videos for game characters
+- 🌈 Responsive design optimized for mobile, tablet, and desktop
+- 🛍️ NFT Store call-to-action component
+- 🎮 Real-time interaction with immersive UI
+- 💅 Hover effects, animations, and scaling transitions
+
+---
+
+## 🧱 Tech Stack
+
+| Category        | Technology                          |
+|----------------|--------------------------------------|
+| Framework       | `React`                              |
+| Styling         | `Tailwind CSS`                       |
+| Icons           | `React Icons`                        |
+| 3D Integration  | `Spline (spline-viewer-react)`       |
+| Deployment      | `Vercel` (recommended)               |
+| Media Assets    | HTML5 `<video>` & `<img>` from `public/` |
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/game-arena.git
+
+# Navigate into the project directory
+cd game-arena
+
+# Install all dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+```
+game-arena/
+├── public/
+│ ├── images/ # Static images
+│ └── videos/ # Looping background and character videos
+├── src/
+│ ├── components/
+│ │ └── Arena.jsx # Main Arena layout with video/image grid
+│ ├── App.jsx
+│ └── main.jsx
+├── tailwind.config.js
+└── README.md
+```
+
+## 4. Build for production
+```
+npm run build
+```
+
+## 5. Preview the build (optional)
+```
+npm run preview
+```
+
+## ⚠️ Hosting Tips
+Ensure all static assets (images/videos) are referenced without public/ prefix:
+```
+<img src="/images/bento-card1.png" alt="..." />
+<video src="/videos/bento-card3.mp4" />
+```
+Using public/images/... will break paths after production build!
+
+## 📦 Dependencies
+```
+"dependencies": {
+  "react": "^18.x",
+  "react-dom": "^18.x",
+  "react-icons": "^4.x",
+  "spline-viewer-react": "^1.x" // or any Spline integration you used
+}
+```
+
+🤝 Contributing
+We welcome contributions to Game Arena!
+
+🍴 Fork the repo
+
+🚀 Create your feature branch (git checkout -b feature/YourFeature)
+
+✅ Commit your changes (git commit -m 'Add YourFeature')
+
+📤 Push to the branch (git push origin feature/YourFeature)
+
+🔁 Open a Pull Request
+
+
+
+
+
+
+
