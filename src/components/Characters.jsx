@@ -162,7 +162,7 @@ const Characters = () => {
                   <div className="text-lg mb-2">{avatar.name}</div>
                   <div className="w-20 h-20 bg-gray-800/50 rounded-md flex items-center justify-center mb-2">
                     <img
-                      src={`public/images/${avatar.name}.png`}
+                      src={`/images/${avatar.name}.png`}
                       alt={`${avatar.name} Img`}
                     />
                   </div>

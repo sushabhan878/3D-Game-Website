@@ -25,7 +25,7 @@ const Arena = () => {
           {/* Card 1 */}
           <div className="relative overflow-hidden rounded-3xl border border-white aspect-[4.4/4] transform transition-transform duration-300 hover:scale-105">
             <img
-              src="public/images/bento-card1.png"
+              src="/images/bento-card1.png"
               alt="Background Image"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -43,7 +43,7 @@ const Arena = () => {
               muted
               playsInline
               className="w-full h-full object-cover"
-              src="public/videos/bento-card2.mp4"
+              src="/videos/bento-card2.mp4"
             ></video>
           </div>
         </div>
@@ -60,7 +60,7 @@ const Arena = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover"
-                src="public/videos/bento-card3.mp4"
+                src="/videos/bento-card3.mp4"
               ></video>
               <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10 font-extrabold text-2xl text-white">
                 Scoriox
@@ -75,7 +75,7 @@ const Arena = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover"
-                src="public/videos/bento-card4.mp4"
+                src="/videos/bento-card4.mp4"
               ></video>
               <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10 font-extrabold text-2xl text-white">
                 Floralynx
@@ -90,7 +90,7 @@ const Arena = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover"
-                src="public/videos/bento-card5.mp4"
+                src="/videos/bento-card5.mp4"
               ></video>
               <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10 font-extrabold text-2xl text-white">
                 Titanor
@@ -101,7 +101,7 @@ const Arena = () => {
           {/* Bottom Image Card */}
           <div className="relative overflow-hidden rounded-3xl border border-white aspect-[16/9] transform transition-transform duration-300 hover:scale-[1.02]">
             <img
-              src="public/images/bento-card5.png"
+              src="/images/bento-card5.png"
               alt="Card image"
               className="w-full h-full object-cover"
             />
